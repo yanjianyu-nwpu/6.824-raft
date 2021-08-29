@@ -1,0 +1,1725 @@
+Role 2 rf.me 0 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 1 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 2 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 3 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 4 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Test (2B): no agreement if too many followers disconnect ...
+Role 2 rf.me 3 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 1 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 0 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 2 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+==================
+WARNING: DATA RACE
+Write at 0x00c0001504c8 by goroutine 60:
+  sync/atomic.StoreInt32()
+      /usr/local/go/src/runtime/race_amd64.s:242 +0xb
+  6.824/raft.(*Raft).RequestVote()
+      /Users/yanjianyu/6.824/src/raft/election.go:27 +0x184
+  runtime.call64()
+      /usr/local/go/src/runtime/asm_amd64.s:552 +0x3d
+  reflect.Value.Call()
+      /usr/local/go/src/reflect/value.go:337 +0xd8
+  6.824/labrpc.(*Service).dispatch()
+      /Users/yanjianyu/6.824/src/labrpc/labrpc.go:496 +0x824
+  6.824/labrpc.(*Server).dispatch()
+      /Users/yanjianyu/6.824/src/labrpc/labrpc.go:420 +0x617
+  6.824/labrpc.(*Network).processReq.func1()
+      /Users/yanjianyu/6.824/src/labrpc/labrpc.go:240 +0xa4
+
+Previous read at 0x00c0001504c8 by goroutine 10:
+  6.824/raft.(*Raft).ticker()
+      /Users/yanjianyu/6.824/src/raft/election.go:135 +0x11c
+
+Goroutine 60 (running) created at:
+  6.824/labrpc.(*Network).processReq()
+      /Users/yanjianyu/6.824/src/labrpc/labrpc.go:239 +0x17c
+
+Goroutine 10 (running) created at:
+  6.824/raft.Make()
+      /Users/yanjianyu/6.824/src/raft/raft.go:301 +0x8e4
+  6.824/raft.(*config).start1()
+      /Users/yanjianyu/6.824/src/raft/config.go:277 +0x924
+  6.824/raft.make_config()
+      /Users/yanjianyu/6.824/src/raft/config.go:97 +0x898
+  6.824/raft.TestFailNoAgree2B()
+      /Users/yanjianyu/6.824/src/raft/test_test.go:229 +0x65
+  testing.tRunner()
+      /usr/local/go/src/testing/testing.go:1193 +0x202
+==================
+Role 2 rf.me 4 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+==================
+WARNING: DATA RACE
+Write at 0x00c000150db8 by goroutine 7:
+  sync/atomic.AddInt32()
+      /usr/local/go/src/runtime/race_amd64.s:292 +0xb
+  6.824/raft.(*Raft).Start()
+      /Users/yanjianyu/6.824/src/raft/raft.go:188 +0x14d
+  6.824/raft.(*config).one()
+      /Users/yanjianyu/6.824/src/raft/config.go:520 +0x1c4
+  6.824/raft.TestFailNoAgree2B()
+      /Users/yanjianyu/6.824/src/raft/test_test.go:234 +0x109
+  testing.tRunner()
+      /usr/local/go/src/testing/testing.go:1193 +0x202
+
+Previous read at 0x00c000150db8 by goroutine 22:
+  6.824/raft.(*Raft).ticker()
+      /Users/yanjianyu/6.824/src/raft/election.go:135 +0x11c
+
+Goroutine 7 (running) created at:
+  testing.(*T).Run()
+      /usr/local/go/src/testing/testing.go:1238 +0x5d7
+  testing.runTests.func1()
+      /usr/local/go/src/testing/testing.go:1511 +0xa6
+  testing.tRunner()
+      /usr/local/go/src/testing/testing.go:1193 +0x202
+  testing.runTests()
+      /usr/local/go/src/testing/testing.go:1509 +0x612
+  testing.(*M).Run()
+      /usr/local/go/src/testing/testing.go:1417 +0x3b3
+  main.main()
+      _testmain.go:83 +0x236
+
+Goroutine 22 (running) created at:
+  6.824/raft.Make()
+      /Users/yanjianyu/6.824/src/raft/raft.go:301 +0x8e4
+  6.824/raft.(*config).start1()
+      /Users/yanjianyu/6.824/src/raft/config.go:277 +0x924
+  6.824/raft.make_config()
+      /Users/yanjianyu/6.824/src/raft/config.go:97 +0x898
+  6.824/raft.TestFailNoAgree2B()
+      /Users/yanjianyu/6.824/src/raft/test_test.go:229 +0x65
+  testing.tRunner()
+      /usr/local/go/src/testing/testing.go:1193 +0x202
+==================
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 1 rf.Commad 0
+Role 0 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 0
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 0
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 0
+Role 0 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 0
+==================
+WARNING: DATA RACE
+Write at 0x00c0001504cc by goroutine 11:
+  sync/atomic.AddInt32()
+      /usr/local/go/src/runtime/race_amd64.s:292 +0xb
+  6.824/raft.(*Raft).LogCommittedCircle()
+      /Users/yanjianyu/6.824/src/raft/logcommit.go:57 +0x529
+
+Previous read at 0x00c0001504cc by goroutine 10:
+  6.824/raft.(*Raft).ticker()
+      /Users/yanjianyu/6.824/src/raft/election.go:135 +0x154
+
+Goroutine 11 (running) created at:
+  6.824/raft.Make()
+      /Users/yanjianyu/6.824/src/raft/raft.go:302 +0x909
+  6.824/raft.(*config).start1()
+      /Users/yanjianyu/6.824/src/raft/config.go:277 +0x924
+  6.824/raft.make_config()
+      /Users/yanjianyu/6.824/src/raft/config.go:97 +0x898
+  6.824/raft.TestFailNoAgree2B()
+      /Users/yanjianyu/6.824/src/raft/test_test.go:229 +0x65
+  testing.tRunner()
+      /usr/local/go/src/testing/testing.go:1193 +0x202
+
+Goroutine 10 (running) created at:
+  6.824/raft.Make()
+      /Users/yanjianyu/6.824/src/raft/raft.go:301 +0x8e4
+  6.824/raft.(*config).start1()
+      /Users/yanjianyu/6.824/src/raft/config.go:277 +0x924
+  6.824/raft.make_config()
+      /Users/yanjianyu/6.824/src/raft/config.go:97 +0x898
+  6.824/raft.TestFailNoAgree2B()
+      /Users/yanjianyu/6.824/src/raft/test_test.go:229 +0x65
+  testing.tRunner()
+      /usr/local/go/src/testing/testing.go:1193 +0x202
+==================
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 3 rf.Commad 2
+Role 0 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 2
+Role 0 rf.me 4 rf.Term 1 rf.LastAPpleind 3 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 2
+==================
+WARNING: DATA RACE
+Read at 0x00c000150dbc by goroutine 22:
+  6.824/raft.(*Raft).ticker()
+      /Users/yanjianyu/6.824/src/raft/election.go:135 +0x154
+
+Previous write at 0x00c000150dbc by goroutine 23:
+  [failed to restore the stack]
+
+Goroutine 22 (running) created at:
+  6.824/raft.Make()
+      /Users/yanjianyu/6.824/src/raft/raft.go:301 +0x8e4
+  6.824/raft.(*config).start1()
+      /Users/yanjianyu/6.824/src/raft/config.go:277 +0x924
+  6.824/raft.make_config()
+      /Users/yanjianyu/6.824/src/raft/config.go:97 +0x898
+  6.824/raft.TestFailNoAgree2B()
+      /Users/yanjianyu/6.824/src/raft/test_test.go:229 +0x65
+  testing.tRunner()
+      /usr/local/go/src/testing/testing.go:1193 +0x202
+
+Goroutine 23 (running) created at:
+  6.824/raft.Make()
+      /Users/yanjianyu/6.824/src/raft/raft.go:302 +0x909
+  6.824/raft.(*config).start1()
+      /Users/yanjianyu/6.824/src/raft/config.go:277 +0x924
+  6.824/raft.make_config()
+      /Users/yanjianyu/6.824/src/raft/config.go:97 +0x898
+  6.824/raft.TestFailNoAgree2B()
+      /Users/yanjianyu/6.824/src/raft/test_test.go:229 +0x65
+  testing.tRunner()
+      /usr/local/go/src/testing/testing.go:1193 +0x202
+==================
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 4 rf.Commad 3
+Role 0 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 3
+Role 0 rf.me 4 rf.Term 1 rf.LastAPpleind 4 rf.Commad 3
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+--- FAIL: TestFailNoAgree2B (3.87s)
+    testing.go:1092: race detected during execution of test
+Role 2 rf.me 0 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 1 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Test (2B): concurrent Start()s ...
+Role 2 rf.me 2 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 0 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 2 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 1 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 0 rf.Commad 0
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 0 rf.Commad 0
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 0 rf.Commad 0
+--- FAIL: TestConcurrentStarts2B (0.52s)
+    test_test.go:366: cmd 100 missing in []
+Role 2 rf.me 0 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 1 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 2 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Test (2B): rejoin of partitioned leader ...
+Role 2 rf.me 0 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 2 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 1 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+==================
+WARNING: DATA RACE
+Read at 0x00c000202e8c by goroutine 106:
+  6.824/raft.(*Raft).ticker()
+      /Users/yanjianyu/6.824/src/raft/election.go:135 +0x154
+
+Previous write at 0x00c000202e8c by goroutine 135:
+  sync/atomic.AddInt32()
+      /usr/local/go/src/runtime/race_amd64.s:292 +0xb
+  6.824/raft.(*Raft).LogCommittedCircle()
+      /Users/yanjianyu/6.824/src/raft/logcommit.go:39 +0x3a4
+
+Goroutine 106 (running) created at:
+  6.824/raft.Make()
+      /Users/yanjianyu/6.824/src/raft/raft.go:301 +0x8e4
+  6.824/raft.(*config).start1()
+      /Users/yanjianyu/6.824/src/raft/config.go:277 +0x924
+  6.824/raft.make_config()
+      /Users/yanjianyu/6.824/src/raft/config.go:97 +0x898
+  6.824/raft.TestRejoin2B()
+      /Users/yanjianyu/6.824/src/raft/test_test.go:385 +0x65
+  testing.tRunner()
+      /usr/local/go/src/testing/testing.go:1193 +0x202
+
+Goroutine 135 (running) created at:
+  6.824/raft.Make()
+      /Users/yanjianyu/6.824/src/raft/raft.go:302 +0x909
+  6.824/raft.(*config).start1()
+      /Users/yanjianyu/6.824/src/raft/config.go:277 +0x924
+  6.824/raft.make_config()
+      /Users/yanjianyu/6.824/src/raft/config.go:97 +0x898
+  6.824/raft.TestRejoin2B()
+      /Users/yanjianyu/6.824/src/raft/test_test.go:385 +0x65
+  testing.tRunner()
+      /usr/local/go/src/testing/testing.go:1193 +0x202
+==================
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+==================
+WARNING: DATA RACE
+Read at 0x00c000203028 by goroutine 171:
+  6.824/raft.(*Raft).ticker()
+      /Users/yanjianyu/6.824/src/raft/election.go:135 +0x11c
+
+Previous write at 0x00c000203028 by goroutine 33:
+  sync/atomic.StoreInt32()
+      /usr/local/go/src/runtime/race_amd64.s:242 +0xb
+  6.824/raft.(*Raft).HandleHeartBeats()
+      /Users/yanjianyu/6.824/src/raft/heartbeat.go:99 +0x435
+  runtime.call64()
+      /usr/local/go/src/runtime/asm_amd64.s:552 +0x3d
+  reflect.Value.Call()
+      /usr/local/go/src/reflect/value.go:337 +0xd8
+  6.824/labrpc.(*Service).dispatch()
+      /Users/yanjianyu/6.824/src/labrpc/labrpc.go:496 +0x824
+  6.824/labrpc.(*Server).dispatch()
+      /Users/yanjianyu/6.824/src/labrpc/labrpc.go:420 +0x617
+  6.824/labrpc.(*Network).processReq.func1()
+      /Users/yanjianyu/6.824/src/labrpc/labrpc.go:240 +0xa4
+
+Goroutine 171 (running) created at:
+  6.824/raft.Make()
+      /Users/yanjianyu/6.824/src/raft/raft.go:301 +0x8e4
+  6.824/raft.(*config).start1()
+      /Users/yanjianyu/6.824/src/raft/config.go:277 +0x924
+  6.824/raft.make_config()
+      /Users/yanjianyu/6.824/src/raft/config.go:97 +0x898
+  6.824/raft.TestRejoin2B()
+      /Users/yanjianyu/6.824/src/raft/test_test.go:385 +0x65
+  testing.tRunner()
+      /usr/local/go/src/testing/testing.go:1193 +0x202
+
+Goroutine 33 (finished) created at:
+  6.824/labrpc.(*Network).processReq()
+      /Users/yanjianyu/6.824/src/labrpc/labrpc.go:239 +0x17c
+==================
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 0
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 0
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+==================
+WARNING: DATA RACE
+Write at 0x00c000202e88 by goroutine 73:
+  sync/atomic.AddInt32()
+      /usr/local/go/src/runtime/race_amd64.s:292 +0xb
+  6.824/raft.(*Raft).Start()
+      /Users/yanjianyu/6.824/src/raft/raft.go:188 +0x14d
+  6.824/raft.TestRejoin2B()
+      /Users/yanjianyu/6.824/src/raft/test_test.go:397 +0x1b6
+  testing.tRunner()
+      /usr/local/go/src/testing/testing.go:1193 +0x202
+
+Previous read at 0x00c000202e88 by goroutine 106:
+  6.824/raft.(*Raft).ticker()
+      /Users/yanjianyu/6.824/src/raft/election.go:135 +0x11c
+
+Goroutine 73 (running) created at:
+  testing.(*T).Run()
+      /usr/local/go/src/testing/testing.go:1238 +0x5d7
+  testing.runTests.func1()
+      /usr/local/go/src/testing/testing.go:1511 +0xa6
+  testing.tRunner()
+      /usr/local/go/src/testing/testing.go:1193 +0x202
+  testing.runTests()
+      /usr/local/go/src/testing/testing.go:1509 +0x612
+  testing.(*M).Run()
+      /usr/local/go/src/testing/testing.go:1417 +0x3b3
+  main.main()
+      _testmain.go:83 +0x236
+
+Goroutine 106 (running) created at:
+  6.824/raft.Make()
+      /Users/yanjianyu/6.824/src/raft/raft.go:301 +0x8e4
+  6.824/raft.(*config).start1()
+      /Users/yanjianyu/6.824/src/raft/config.go:277 +0x924
+  6.824/raft.make_config()
+      /Users/yanjianyu/6.824/src/raft/config.go:97 +0x898
+  6.824/raft.TestRejoin2B()
+      /Users/yanjianyu/6.824/src/raft/test_test.go:385 +0x65
+  testing.tRunner()
+      /usr/local/go/src/testing/testing.go:1193 +0x202
+==================
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 1 rf.Term 2 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 2 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 1 rf.Term 2 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 2 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 1 rf.Term 2 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 2 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 1 rf.Term 2 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 2 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+I become follower rf,me 0
+Role 1 rf.me 1 rf.Term 2 rf.LastAPpleind 2 rf.Commad 2
+A Leader is over
+Role 2 rf.me 2 rf.Term 2 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 1 rf.Term 2 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 0 rf.Term 3 rf.LastAPpleind 3 rf.Commad 2
+Role 1 rf.me 2 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+I become follower rf,me 1
+I become follower rf,me 1
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 0 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 2 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+A Leader is over
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 0 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 2 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 0 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 2 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 0 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 2 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 0 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 2 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 0 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 2 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 0 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 2 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 0 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 2 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 0 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 2 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 0 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 2 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 0 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 2 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 0 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 2 rf.Term 3 rf.LastAPpleind 4 rf.Commad 3
+Role 0 rf.me 0 rf.Term 3 rf.LastAPpleind 4 rf.Commad 3
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 4 rf.Commad 3
+--- FAIL: TestRejoin2B (4.63s)
+    testing.go:1092: race detected during execution of test
+Role 2 rf.me 0 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 1 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 3 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 4 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 2 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Test (2B): leader backs up quickly over incorrect follower logs ...
+Role 2 rf.me 3 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 2 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 0 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 1 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 0 rf.me 4 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 1 rf.Commad 0
+Role 0 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 0
+Role 0 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 0
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 0
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 0
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+==================
+WARNING: DATA RACE
+Read at 0x00c0008371c8 by goroutine 164:
+  6.824/raft.(*Raft).ticker()
+      /Users/yanjianyu/6.824/src/raft/election.go:135 +0x11c
+
+Previous write at 0x00c0008371c8 by goroutine 97:
+  [failed to restore the stack]
+
+Goroutine 164 (running) created at:
+  6.824/raft.Make()
+      /Users/yanjianyu/6.824/src/raft/raft.go:301 +0x8e4
+  6.824/raft.(*config).start1()
+      /Users/yanjianyu/6.824/src/raft/config.go:277 +0x924
+  6.824/raft.make_config()
+      /Users/yanjianyu/6.824/src/raft/config.go:97 +0x898
+  6.824/raft.TestBackup2B()
+      /Users/yanjianyu/6.824/src/raft/test_test.go:423 +0x65
+  testing.tRunner()
+      /usr/local/go/src/testing/testing.go:1193 +0x202
+
+Goroutine 97 (running) created at:
+  testing.(*T).Run()
+      /usr/local/go/src/testing/testing.go:1238 +0x5d7
+  testing.runTests.func1()
+      /usr/local/go/src/testing/testing.go:1511 +0xa6
+  testing.tRunner()
+      /usr/local/go/src/testing/testing.go:1193 +0x202
+  testing.runTests()
+      /usr/local/go/src/testing/testing.go:1509 +0x612
+  testing.(*M).Run()
+      /usr/local/go/src/testing/testing.go:1417 +0x3b3
+  main.main()
+      _testmain.go:83 +0x236
+==================
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 2 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 2 rf.Commad 2
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 3 rf.Commad 2
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 3 rf.Commad 2
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 4 rf.Commad 3
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 4 rf.Commad 3
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 5 rf.Commad 4
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 5 rf.Commad 4
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 5 rf.Commad 5
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 6 rf.Commad 5
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 6 rf.Commad 5
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 6 rf.Commad 5
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 7 rf.Commad 6
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 7 rf.Commad 6
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 7 rf.Commad 6
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 8 rf.Commad 7
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 8 rf.Commad 7
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 8 rf.Commad 7
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 9 rf.Commad 8
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 8 rf.Commad 8
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 9 rf.Commad 8
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 9 rf.Commad 9
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 10 rf.Commad 9
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 10 rf.Commad 9
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 10 rf.Commad 9
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 10 rf.Commad 10
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 11 rf.Commad 10
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 11 rf.Commad 10
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 11 rf.Commad 11
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 12 rf.Commad 11
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 12 rf.Commad 11
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 12 rf.Commad 12
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 13 rf.Commad 12
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 13 rf.Commad 12
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 13 rf.Commad 13
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 14 rf.Commad 13
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 14 rf.Commad 13
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 14 rf.Commad 14
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 14 rf.Commad 14
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 15 rf.Commad 14
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 15 rf.Commad 15
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 15 rf.Commad 15
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 15 rf.Commad 15
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 16 rf.Commad 16
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 16 rf.Commad 15
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 16 rf.Commad 16
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 17 rf.Commad 17
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 17 rf.Commad 16
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 17 rf.Commad 16
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 18 rf.Commad 18
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 18 rf.Commad 17
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 18 rf.Commad 17
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 19 rf.Commad 18
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 19 rf.Commad 18
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 19 rf.Commad 18
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 20 rf.Commad 19
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 20 rf.Commad 19
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 20 rf.Commad 19
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 21 rf.Commad 20
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 21 rf.Commad 20
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 21 rf.Commad 20
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 22 rf.Commad 21
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 22 rf.Commad 21
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 22 rf.Commad 21
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 22 rf.Commad 22
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 23 rf.Commad 22
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 23 rf.Commad 22
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 23 rf.Commad 23
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 24 rf.Commad 23
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 23 rf.Commad 23
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 24 rf.Commad 23
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 24 rf.Commad 24
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 24 rf.Commad 24
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 25 rf.Commad 24
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 25 rf.Commad 25
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 25 rf.Commad 25
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 26 rf.Commad 25
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 26 rf.Commad 26
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 26 rf.Commad 25
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 27 rf.Commad 26
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 27 rf.Commad 26
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 27 rf.Commad 27
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 28 rf.Commad 27
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 28 rf.Commad 27
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 28 rf.Commad 28
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 29 rf.Commad 28
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 29 rf.Commad 28
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 29 rf.Commad 29
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 29 rf.Commad 29
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 30 rf.Commad 29
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 30 rf.Commad 30
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 30 rf.Commad 30
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 31 rf.Commad 30
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 31 rf.Commad 31
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 31 rf.Commad 30
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 32 rf.Commad 31
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 32 rf.Commad 32
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 32 rf.Commad 31
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 33 rf.Commad 32
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 33 rf.Commad 32
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 33 rf.Commad 32
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 33 rf.Commad 33
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 34 rf.Commad 33
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 34 rf.Commad 33
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 34 rf.Commad 34
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 35 rf.Commad 34
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 35 rf.Commad 34
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 35 rf.Commad 35
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 36 rf.Commad 35
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 36 rf.Commad 35
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 36 rf.Commad 35
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 36 rf.Commad 36
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 37 rf.Commad 36
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 37 rf.Commad 36
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 37 rf.Commad 37
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 38 rf.Commad 37
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 38 rf.Commad 37
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 38 rf.Commad 37
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 39 rf.Commad 38
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 39 rf.Commad 38
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 39 rf.Commad 38
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 39 rf.Commad 39
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 40 rf.Commad 39
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 40 rf.Commad 39
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 40 rf.Commad 40
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 41 rf.Commad 40
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 41 rf.Commad 40
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 41 rf.Commad 41
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 42 rf.Commad 41
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 42 rf.Commad 41
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 42 rf.Commad 42
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 43 rf.Commad 42
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 43 rf.Commad 42
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 43 rf.Commad 43
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 43 rf.Commad 43
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 44 rf.Commad 43
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 44 rf.Commad 44
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 44 rf.Commad 44
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 44 rf.Commad 44
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 45 rf.Commad 45
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 45 rf.Commad 44
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 45 rf.Commad 45
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 46 rf.Commad 46
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 46 rf.Commad 45
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 46 rf.Commad 45
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 47 rf.Commad 47
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 47 rf.Commad 46
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 47 rf.Commad 46
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 48 rf.Commad 47
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 48 rf.Commad 47
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 48 rf.Commad 47
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 49 rf.Commad 48
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 49 rf.Commad 48
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 49 rf.Commad 48
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 50 rf.Commad 49
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 50 rf.Commad 49
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 50 rf.Commad 49
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 50 rf.Commad 50
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 51 rf.Commad 50
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 51 rf.Commad 50
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 51 rf.Commad 51
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 51 rf.Commad 51
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 51 rf.Commad 51
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 51 rf.Commad 51
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 51 rf.Commad 51
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 51 rf.Commad 51
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 51 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 51 rf.Commad 51
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 51 rf.Commad 51
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 0 rf.Term 2 rf.LastAPpleind 51 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 0 rf.Term 2 rf.LastAPpleind 51 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 4 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 2 rf.me 0 rf.Term 2 rf.LastAPpleind 51 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 3 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+I become follower rf,me 3
+Role 2 rf.me 0 rf.Term 2 rf.LastAPpleind 51 rf.Commad 51
+Role 0 rf.me 4 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 52 rf.Commad 3
+A Leader is over
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 52 rf.Commad 52
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 52 rf.Commad 4
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 52 rf.Commad 5
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 52 rf.Commad 52
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 52 rf.Commad 6
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 52 rf.Commad 6
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 52 rf.Commad 52
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 52 rf.Commad 8
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 52 rf.Commad 8
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 52 rf.Commad 52
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 52 rf.Commad 9
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 52 rf.Commad 9
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 52 rf.Commad 52
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 52 rf.Commad 11
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 52 rf.Commad 11
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 52 rf.Commad 12
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 52 rf.Commad 52
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 52 rf.Commad 13
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 52 rf.Commad 14
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 52 rf.Commad 52
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 52 rf.Commad 15
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 52 rf.Commad 16
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 52 rf.Commad 52
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 52 rf.Commad 17
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 52 rf.Commad 17
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 52 rf.Commad 52
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 52 rf.Commad 18
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 52 rf.Commad 19
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 52 rf.Commad 52
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 52 rf.Commad 20
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 52 rf.Commad 20
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 52 rf.Commad 52
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 52 rf.Commad 22
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 52 rf.Commad 22
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 53 rf.Commad 52
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 53 rf.Commad 24
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 53 rf.Commad 24
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 53 rf.Commad 53
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 53 rf.Commad 26
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 53 rf.Commad 26
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 53 rf.Commad 53
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 53 rf.Commad 28
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 53 rf.Commad 28
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 53 rf.Commad 53
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 53 rf.Commad 29
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 53 rf.Commad 30
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 53 rf.Commad 31
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 53 rf.Commad 53
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 53 rf.Commad 32
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 53 rf.Commad 33
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 53 rf.Commad 53
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 53 rf.Commad 34
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 53 rf.Commad 34
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 53 rf.Commad 53
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 53 rf.Commad 35
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 53 rf.Commad 36
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 53 rf.Commad 53
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 53 rf.Commad 37
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 53 rf.Commad 37
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 53 rf.Commad 53
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 53 rf.Commad 39
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 53 rf.Commad 39
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 53 rf.Commad 53
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 53 rf.Commad 40
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 53 rf.Commad 41
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 53 rf.Commad 53
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 53 rf.Commad 42
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 53 rf.Commad 43
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 53 rf.Commad 53
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 53 rf.Commad 44
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 53 rf.Commad 44
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 54 rf.Commad 53
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 54 rf.Commad 46
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 54 rf.Commad 47
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 54 rf.Commad 48
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 54 rf.Commad 54
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 54 rf.Commad 49
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 54 rf.Commad 49
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 54 rf.Commad 54
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 54 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 54 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 54 rf.Commad 54
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 54 rf.Commad 53
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 54 rf.Commad 53
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 54 rf.Commad 54
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 55 rf.Commad 54
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 55 rf.Commad 54
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 55 rf.Commad 55
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 55 rf.Commad 55
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 56 rf.Commad 55
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 56 rf.Commad 56
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 56 rf.Commad 55
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 57 rf.Commad 56
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 57 rf.Commad 56
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 57 rf.Commad 56
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 57 rf.Commad 57
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 58 rf.Commad 57
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 58 rf.Commad 57
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 58 rf.Commad 58
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 59 rf.Commad 58
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 59 rf.Commad 58
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 59 rf.Commad 58
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 60 rf.Commad 59
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 59 rf.Commad 59
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 60 rf.Commad 59
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 60 rf.Commad 59
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 60 rf.Commad 60
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 61 rf.Commad 60
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 61 rf.Commad 61
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 61 rf.Commad 60
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 62 rf.Commad 61
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 62 rf.Commad 62
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 62 rf.Commad 61
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 63 rf.Commad 62
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 63 rf.Commad 63
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 63 rf.Commad 62
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 63 rf.Commad 63
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 64 rf.Commad 63
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 64 rf.Commad 63
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 64 rf.Commad 63
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 65 rf.Commad 64
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 65 rf.Commad 64
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 65 rf.Commad 64
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 66 rf.Commad 65
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 66 rf.Commad 65
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 66 rf.Commad 65
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 67 rf.Commad 66
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 66 rf.Commad 66
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 67 rf.Commad 66
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 67 rf.Commad 67
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 67 rf.Commad 67
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 67 rf.Commad 67
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 68 rf.Commad 68
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 68 rf.Commad 67
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 68 rf.Commad 67
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 69 rf.Commad 68
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 69 rf.Commad 69
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 69 rf.Commad 68
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 70 rf.Commad 69
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 70 rf.Commad 70
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 70 rf.Commad 69
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 70 rf.Commad 70
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 71 rf.Commad 70
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 71 rf.Commad 70
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 71 rf.Commad 71
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 72 rf.Commad 71
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 72 rf.Commad 71
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 72 rf.Commad 71
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 73 rf.Commad 72
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 73 rf.Commad 72
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 73 rf.Commad 72
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 73 rf.Commad 73
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 74 rf.Commad 73
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 74 rf.Commad 73
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 74 rf.Commad 74
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 74 rf.Commad 74
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 75 rf.Commad 74
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 75 rf.Commad 75
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 75 rf.Commad 75
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 75 rf.Commad 75
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 76 rf.Commad 76
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 76 rf.Commad 75
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 76 rf.Commad 76
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 77 rf.Commad 77
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 77 rf.Commad 76
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 77 rf.Commad 76
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 78 rf.Commad 77
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 78 rf.Commad 77
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 78 rf.Commad 77
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 78 rf.Commad 78
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 79 rf.Commad 78
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 79 rf.Commad 78
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 79 rf.Commad 78
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 80 rf.Commad 79
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 80 rf.Commad 79
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 80 rf.Commad 79
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 81 rf.Commad 80
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 81 rf.Commad 80
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 81 rf.Commad 80
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 81 rf.Commad 81
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 82 rf.Commad 81
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 82 rf.Commad 81
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 82 rf.Commad 82
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 82 rf.Commad 82
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 83 rf.Commad 82
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 83 rf.Commad 83
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 83 rf.Commad 82
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 84 rf.Commad 83
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 84 rf.Commad 84
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 84 rf.Commad 83
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 84 rf.Commad 84
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 85 rf.Commad 84
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 85 rf.Commad 84
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 85 rf.Commad 85
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 86 rf.Commad 85
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 86 rf.Commad 85
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 86 rf.Commad 85
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 86 rf.Commad 86
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 87 rf.Commad 86
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 87 rf.Commad 86
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 87 rf.Commad 86
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 88 rf.Commad 87
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 88 rf.Commad 87
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 88 rf.Commad 87
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 88 rf.Commad 88
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 89 rf.Commad 88
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 89 rf.Commad 88
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 89 rf.Commad 89
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 90 rf.Commad 89
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 90 rf.Commad 89
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 90 rf.Commad 90
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 90 rf.Commad 90
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 91 rf.Commad 90
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 91 rf.Commad 91
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 91 rf.Commad 90
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 92 rf.Commad 91
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 92 rf.Commad 91
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 92 rf.Commad 91
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 93 rf.Commad 92
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 93 rf.Commad 92
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 93 rf.Commad 92
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 93 rf.Commad 93
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 94 rf.Commad 93
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 93 rf.Commad 93
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 94 rf.Commad 94
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 94 rf.Commad 94
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 94 rf.Commad 94
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 95 rf.Commad 94
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 95 rf.Commad 95
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 95 rf.Commad 94
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 96 rf.Commad 95
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 96 rf.Commad 96
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 96 rf.Commad 95
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 97 rf.Commad 96
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 97 rf.Commad 97
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 97 rf.Commad 96
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 97 rf.Commad 97
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 98 rf.Commad 98
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 98 rf.Commad 97
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 98 rf.Commad 98
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 99 rf.Commad 98
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 99 rf.Commad 98
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 99 rf.Commad 98
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 100 rf.Commad 99
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 100 rf.Commad 99
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 100 rf.Commad 99
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 101 rf.Commad 100
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 101 rf.Commad 100
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 101 rf.Commad 100
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 101 rf.Commad 101
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 101 rf.Commad 101
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 102 rf.Commad 101
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 102 rf.Commad 102
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 102 rf.Commad 101
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 102 rf.Commad 102
+Role 1 rf.me 2 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 2 rf.me 1 rf.Term 2 rf.LastAPpleind 52 rf.Commad 51
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 103 rf.Commad 102
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 103 rf.Commad 103
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 103 rf.Commad 103
+A Leader is over
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 104 rf.Commad 103
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 104 rf.Commad 52
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 104 rf.Commad 52
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 104 rf.Commad 103
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 104 rf.Commad 54
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 104 rf.Commad 54
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 104 rf.Commad 55
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 104 rf.Commad 56
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 104 rf.Commad 57
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 104 rf.Commad 57
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 104 rf.Commad 59
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 104 rf.Commad 59
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 104 rf.Commad 61
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 104 rf.Commad 61
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 104 rf.Commad 63
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 104 rf.Commad 63
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 104 rf.Commad 64
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 104 rf.Commad 65
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 104 rf.Commad 66
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 104 rf.Commad 67
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 104 rf.Commad 68
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 104 rf.Commad 69
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 104 rf.Commad 70
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 104 rf.Commad 71
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 104 rf.Commad 104
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 105 rf.Commad 104
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 105 rf.Commad 72
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 105 rf.Commad 104
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 105 rf.Commad 104
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 105 rf.Commad 73
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 105 rf.Commad 75
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 105 rf.Commad 75
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 105 rf.Commad 77
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 105 rf.Commad 77
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 105 rf.Commad 78
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 105 rf.Commad 79
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 105 rf.Commad 80
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 105 rf.Commad 81
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 105 rf.Commad 82
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 105 rf.Commad 83
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 105 rf.Commad 84
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 105 rf.Commad 85
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 105 rf.Commad 86
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 105 rf.Commad 86
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 105 rf.Commad 87
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 105 rf.Commad 88
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 105 rf.Commad 89
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 105 rf.Commad 90
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 105 rf.Commad 91
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 105 rf.Commad 92
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 105 rf.Commad 105
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 105 rf.Commad 93
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 106 rf.Commad 105
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 106 rf.Commad 105
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 106 rf.Commad 95
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 106 rf.Commad 105
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 106 rf.Commad 96
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 106 rf.Commad 97
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 106 rf.Commad 98
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 106 rf.Commad 99
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 106 rf.Commad 99
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 106 rf.Commad 101
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 106 rf.Commad 101
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 106 rf.Commad 102
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 106 rf.Commad 103
+Role 0 rf.me 2 rf.Term 3 rf.LastAPpleind 106 rf.Commad 104
+Role 0 rf.me 3 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 1 rf.me 0 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 0 rf.me 4 rf.Term 3 rf.LastAPpleind 106 rf.Commad 106
+Role 0 rf.me 1 rf.Term 3 rf.LastAPpleind 106 rf.Commad 105
+--- FAIL: TestBackup2B (32.68s)
+    testing.go:1092: race detected during execution of test
+Role 2 rf.me 0 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 1 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 2 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Test (2B): RPC counts aren't too high ...
+Role 2 rf.me 0 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 2 rf.me 1 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 0 rf.me 2 rf.Term 0 rf.LastAPpleind 0 rf.Commad 0
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 0 rf.Commad 0
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 0 rf.Commad 0
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 0 rf.Commad 0
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 0 rf.Commad 0
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 0 rf.Commad 0
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 0 rf.Commad 0
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 0 rf.Commad 0
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 0 rf.Commad 0
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 0 rf.Commad 0
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 0 rf.Commad 0
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 0 rf.Commad 0
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 0 rf.Commad 0
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 0
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 1 rf.Commad 1
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 1
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 2 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 2
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 2
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 2
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 3 rf.Commad 3
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 3
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 3
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 4 rf.Commad 4
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 5 rf.Commad 4
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 5 rf.Commad 4
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 5 rf.Commad 5
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 5 rf.Commad 5
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 5 rf.Commad 5
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 5 rf.Commad 5
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 5 rf.Commad 5
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 5 rf.Commad 5
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 5 rf.Commad 5
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 5 rf.Commad 5
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 5 rf.Commad 5
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 5 rf.Commad 5
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 5 rf.Commad 5
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 5 rf.Commad 5
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 5 rf.Commad 5
+Role 0 rf.me 1 rf.Term 1 rf.LastAPpleind 5 rf.Commad 5
+Role 1 rf.me 0 rf.Term 1 rf.LastAPpleind 5 rf.Commad 5
+Role 0 rf.me 2 rf.Term 1 rf.LastAPpleind 5 rf.Commad 5
+--- FAIL: TestCount2B (16.17s)
+    test_test.go:597: too many RPCs (336) for 1 second of idleness
+FAIL
+exit status 1
+FAIL	6.824/raft	58.348s

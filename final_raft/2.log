@@ -1,0 +1,571 @@
+Role 2 0 0
+Role 2 1 0
+Role 2 2 0
+Test (2A): initial election ...
+Role 2 0 0
+I become Leader 0
+BroadCast 0
+Role 2 1 0
+I get HeartBeat
+I get HeartBeat
+Role 0 2 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 1 0 1
+Role 0 1 1
+Role 0 2 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 1 0 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 0 1 1
+Role 0 2 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 1 0 1
+Role 0 1 1
+Role 0 2 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 1 0 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 0 1 1
+Role 0 2 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 1 0 1
+Role 0 1 1
+Role 0 2 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 1 0 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 0 1 1
+Role 0 2 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 1 0 1
+Role 0 1 1
+Role 0 2 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 1 0 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 0 1 1
+Role 0 2 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 1 0 1
+Role 0 1 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 0 2 1
+Role 1 0 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 0 1 1
+Role 0 2 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 1 0 1
+Role 0 1 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 0 2 1
+Role 1 0 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 0 1 1
+Role 0 2 1
+Role 1 0 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 0 1 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 0 2 1
+Role 1 0 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 0 1 1
+Role 1 0 1
+Role 0 2 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 0 1 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 1 0 1
+Role 0 2 1
+  ... Passed --   3.0  3   52   12088    0
+Role 2 0 0
+Role 2 1 0
+Role 2 2 0
+Test (2A): election after network failure ...
+BroadCast 0
+Role 2 0 0
+I become Leader 0
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 0 1 1
+Role 0 2 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 1 0 1
+Role 0 1 1
+Role 0 2 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 1 0 1
+BroadCast 0
+Role 0 1 1
+Role 0 2 1
+BroadCast 0
+Role 1 0 1
+Role 2 1 1
+I become Leader 1
+BroadCast 1
+I get HeartBeat
+Role 0 2 2
+BroadCast 0
+BroadCast 1
+I get HeartBeat
+Role 1 0 1
+BroadCast 0
+Role 1 1 2
+Role 0 2 2
+BroadCast 1
+I get HeartBeat
+BroadCast 0
+Role 0 0 2
+BroadCast 1
+I get HeartBeat
+I get HeartBeat
+Role 1 1 2
+Role 0 2 2
+A Leader is over
+BroadCast 1
+I get HeartBeat
+I get HeartBeat
+Role 0 0 2
+Role 1 1 2
+Role 0 2 2
+BroadCast 1
+I get HeartBeat
+I get HeartBeat
+Role 0 0 2
+BroadCast 1
+I get HeartBeat
+I get HeartBeat
+Role 1 1 2
+11111111111111
+2222222222222222
+Role 0 2 2
+BroadCast 1
+Role 0 0 2
+Role 1 1 2
+Role 2 2 2
+BroadCast 1
+Role 2 0 2
+BroadCast 1
+Role 1 1 2
+Role 2 2 2
+Role 2 0 2
+BroadCast 1
+Role 1 1 2
+BroadCast 1
+Role 2 2 2
+Role 2 0 2
+BroadCast 1
+Role 1 1 2
+Role 2 2 2
+Role 2 0 2
+BroadCast 1
+Role 1 1 2
+BroadCast 1
+Role 2 2 2
+Role 2 0 2
+BroadCast 1
+Role 1 1 2
+Role 2 2 2
+Role 2 0 2
+BroadCast 1
+Role 1 1 2
+BroadCast 1
+Role 2 0 2
+Role 2 2 2
+BroadCast 1
+Role 1 1 2
+Role 2 0 2
+Role 2 2 2
+BroadCast 1
+Role 1 1 2
+BroadCast 1
+Role 2 0 2
+Role 2 2 2
+BroadCast 1
+Role 1 1 2
+Role 2 0 2
+BroadCast 1
+Role 2 2 2
+3333333333333333333
+Role 1 1 2
+BroadCast 1
+Role 2 0 2
+I become Leader 0
+BroadCast 0
+I get HeartBeat
+Role 0 2 3
+BroadCast 1
+BroadCast 0
+I get HeartBeat
+Role 1 1 2
+Role 1 0 3
+BroadCast 1
+Role 0 2 3
+BroadCast 0
+I get HeartBeat
+Role 1 1 2
+BroadCast 1
+Role 1 0 3
+BroadCast 0
+I get HeartBeat
+Role 0 2 3
+IIIIIII FAAAAA
+BroadCast 1
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 0 1 3
+Role 1 0 3
+A Leader is over
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 0 2 3
+Role 0 1 3
+Role 1 0 3
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 0 2 3
+BroadCast 0
+I get HeartBeat
+I get HeartBeat
+Role 0 1 3
+Role 1 0 3
+  ... Passed --   4.4  3  134   24568    0
+Role 2 0 0
+Role 2 1 0
+Role 2 2 0
+Role 2 3 0
+Role 2 4 0
+Role 2 5 0
+Role 2 6 0
+Test (2A): multiple elections ...
+BroadCast 0
+Role 2 3 0
+I become Leader 3
+BroadCast 3
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 0 0 1
+Role 0 5 1
+Role 0 1 1
+Role 0 4 1
+Role 0 2 1
+Role 0 6 1
+BroadCast 3
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 1 3 1
+Role 0 0 1
+Role 0 5 1
+Role 0 4 1
+Role 0 1 1
+Role 0 2 1
+Role 0 6 1
+BroadCast 3
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 1 3 1
+BroadCast 3
+Role 0 0 1
+I get HeartBeat
+Role 0 5 1
+Role 0 4 1
+Role 0 1 1
+Role 0 2 1
+Role 2 6 1
+Role 1 3 1
+BroadCast 3
+Role 0 0 1
+Role 2 5 1
+Role 2 4 1
+I become Leader 4
+BroadCast 4
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 0 1 2
+Role 0 2 2
+BroadCast 3
+Role 1 3 1
+Role 2 6 1
+BroadCast 4
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 0 0 2
+BroadCast 3
+Role 2 5 1
+Role 1 4 2
+Role 0 1 2
+Role 0 2 2
+Role 1 3 1
+BroadCast 4
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+BroadCast 3
+Role 2 6 1
+Role 0 0 2
+Role 2 5 1
+Role 1 4 2
+BroadCast 4
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 0 1 2
+Role 0 3 2
+A Leader is over
+Role 0 2 2
+BroadCast 4
+Role 0 6 2
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 2 0 2
+Role 2 5 1
+Role 1 4 2
+Role 2 1 2
+Role 0 3 2
+Role 0 2 2
+BroadCast 4
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 0 6 2
+Role 2 0 2
+Role 2 5 1
+Role 0 3 2
+Role 1 4 2
+BroadCast 4
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 2 1 2
+Role 0 2 2
+BroadCast 4
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 2 0 2
+Role 0 3 2
+Role 0 5 2
+Role 0 6 2
+Role 1 4 2
+Role 0 1 2
+BroadCast 4
+Role 2 2 2
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 0 3 2
+Role 2 0 2
+Role 0 5 2
+Role 1 4 2
+BroadCast 4
+Role 0 6 2
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 0 1 2
+Role 2 2 2
+Role 0 3 2
+BroadCast 4
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 2 0 2
+Role 0 5 2
+Role 1 4 2
+Role 0 6 2
+Role 0 1 2
+BroadCast 4
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 2 2 2
+Role 0 3 2
+Role 2 0 2
+Role 0 5 2
+Role 1 4 2
+BroadCast 4
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 0 1 2
+Role 0 6 2
+Role 2 2 2
+BroadCast 4
+Role 2 0 2
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 0 5 2
+Role 1 4 2
+Role 0 1 2
+Role 0 6 2
+BroadCast 4
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 2 2 2
+Role 2 0 2
+Role 0 5 2
+Role 1 4 2
+BroadCast 4
+I get HeartBeat
+I get HeartBeat
+I get HeartBeat
+Role 0 1 2
+Role 0 6 2
+Role 2 2 2
+Role 2 0 2
+BroadCast 4
+Role 0 5 2
+Role 1 4 2
+BroadCast 4
+Role 2 0 2
+Role 2 2 2
+Role 1 4 2
+BroadCast 4
+Role 2 0 2
+Role 2 2 2
+BroadCast 4
+Role 1 4 2
+BroadCast 4
+Role 2 0 2
+Role 2 2 2
+Role 1 4 2
+BroadCast 4
+Role 2 0 2
+BroadCast 4
+Role 2 2 2
+Role 1 4 2
+BroadCast 4
+Role 2 0 2
+Role 2 2 2
+Role 1 4 2
+BroadCast 4
+Role 2 0 2
+BroadCast 4
+Role 2 2 2
+Role 1 4 2
+BroadCast 4
+Role 2 0 2
+Role 2 2 2
+Role 1 4 2
+BroadCast 4
+Role 2 0 2
+BroadCast 4
+Role 2 2 2
+Role 1 4 2
+BroadCast 4
+Role 2 0 2
+Role 2 2 2
+Role 1 4 2
+BroadCast 4
+Role 2 0 2
+BroadCast 4
+Role 1 4 2
+Role 2 2 2
+BroadCast 4
+Role 2 0 2
+Role 1 4 2
+BroadCast 4
+Role 2 2 2
+Role 2 0 2
+BroadCast 4
+Role 1 4 2
+Role 2 2 2
+Role 2 0 2
+BroadCast 4
+Role 1 4 2
+BroadCast 4
+Role 2 2 2
+Role 2 0 2
+BroadCast 4
+Role 1 4 2
+Role 2 2 2
+Role 2 0 2
+BroadCast 4
+Role 1 4 2
+BroadCast 4
+Role 2 2 2
+Role 2 0 2
+BroadCast 4
+Role 1 4 2
+Role 2 2 2
+BroadCast 4
+Role 2 0 2
+  ... Passed --   5.7  7  504   65300    0
+PASS
+ok  	6.824/raft	13.504s

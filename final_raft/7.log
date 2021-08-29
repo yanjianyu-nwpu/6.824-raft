@@ -1,0 +1,63 @@
+Test (2C): basic persistence ...
+A Leader is over
+  ... Passed --   4.1  3  118   28490    6
+Test (2C): more persistence ...
+I become follower rf,me 3
+A Leader is over
+I become follower rf,me 1
+A Leader is over
+I become follower rf,me 4
+A Leader is over
+I become follower rf,me 2
+A Leader is over
+A Leader is over
+  ... Passed --  16.3  5 1408  273840   16
+Test (2C): partitioned leader and one follower crash, leader restarts ...
+  ... Passed --   1.9  3   54   12951    4
+Test (2C): Figure 8 ...
+A Leader is over
+A Leader is over
+  ... Passed --  38.6  5 2056  728391   66
+Test (2C): unreliable agreement ...
+  ... Passed --  26.7  5 2064  552727  246
+Test (2C): Figure 8 (unreliable) ...
+I become follower rf,me 0
+A Leader is over
+I become follower rf,me 3
+A Leader is over
+I become follower rf,me 2
+A Leader is over
+I become follower rf,me 0
+A Leader is over
+I become follower rf,me 1
+A Leader is over
+I become follower rf,me 3
+A Leader is over
+A Leader is over
+A Leader is over
+A Leader is over
+I become follower rf,me 4
+A Leader is over
+I become follower rf,me 1
+A Leader is over
+I become follower rf,me 0
+A Leader is over
+I become follower rf,me 2
+A Leader is over
+I become follower rf,me 3
+A Leader is over
+I become follower rf,me 4
+A Leader is over
+I become follower rf,me 0
+A Leader is over
+A Leader is over
+A Leader is over
+  ... Passed --  37.8  5 4936 1287754   44
+Test (2C): churn ...
+A Leader is over
+A Leader is over
+  ... Passed --  17.7  5 1504  506162  144
+Test (2C): unreliable churn ...
+  ... Passed --  17.1  5 1248  458723  120
+PASS
+ok  	6.824/raft	160.438s
